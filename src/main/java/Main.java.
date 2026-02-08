@@ -1,4 +1,5 @@
 import model.Student;
+import model.Inventory;
 import repository.StudentRepository;
 import service.StudentService;
 import java.util.ArrayList;
@@ -6,34 +7,38 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // 1. Create a Mock Repository (Simulating a Database for now)
+        // 1. Updated Mock Repository to handle both Students and Inventory
         StudentRepository mockRepo = new StudentRepository() {
-            private List<Student> db = new ArrayList<>();
+            private List<Student> students = new ArrayList<>();
+            private List<Inventory> items = new ArrayList<>();
 
-            @Override
-            public void addStudent(Student s) { db.add(s); }
-            @Override
-            public Student getStudentById(int id) { return null; }
-            @Override
-            public List<Student> getAllStudents() { return db; }
-            @Override
-            public void updateStudent(Student s) {}
-            @Override
-            public void deleteStudent(int id) {}
+            @Override public void addStudent(Student s) { students.add(s); }
+            @Override public Student getStudentById(int id) { return null; }
+            @Override public List<Student> getAllStudents() { return students; }
+            @Override public void updateStudent(Student s) {}
+            @Override public void deleteStudent(int id) {}
+
+            @Override public void addItem(Inventory i) { items.add(i); }
+            @Override public List<Inventory> getAllItems() { return items; }
+            @Override public void updateItemQuantity(int id, int qty) {}
+            @Override public void deleteItem(int id) {}
         };
 
-        // 2. Initialize Service with the Repository
+        // 2. Initialize Service
         StudentService service = new StudentService(mockRepo);
 
-        System.out.println("--- Starting Student Management System ---");
+        System.out.println("--- System Integration Test ---");
 
-        // 3. Test VALID data
-        Student validStudent = new Student(101, "John Doe", "Computer Science");
-        service.saveStudent(validStudent);
+        // 3. Test Student Validation
+        service.saveStudent(new Student(101, "Alice", "Java Backend"));
 
-        // 4. Test INVALID data (Triggers your Validation logic)
-        Student invalidStudent = new Student(0, "", "Physics");
-        service.saveStudent(invalidStudent);
+        // 4. Test Inventory Validation (Roadmap Requirement)
+        System.out.println("\nTesting Inventory...");
+        
+        // This should SUCCEED
+        service.saveItem(new Inventory(1, "Laptop", 10)); 
+        
+        // This should FAIL (Negative quantity validation)
+        service.saveItem(new Inventory(2, "Mouse", -5)); 
     }
 }
-
