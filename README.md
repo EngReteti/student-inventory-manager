@@ -14,6 +14,6 @@ A layered Java backend system focused on Clean Architecture, OOP principles, and
   - [x] Established `StudentRepository` interface for CRUD operations.
   - [x] Built `StudentService` with business validation rules.
   - [x] Integrated components in `Main.java` for system testing.
-- [ ] **Phase 2: Inventory Module** (Next Step)
+- [ ] **Phase 2: Inventory Module** (Next working)
 - [ ] **Phase 3: Database Connectivity (JDBC)**
 - [ ] 
