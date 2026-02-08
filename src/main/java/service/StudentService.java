@@ -1,33 +1,32 @@
 package service;
 
 import model.Student;
+import model.Inventory;
 import repository.StudentRepository;
 
-/**
- * Objective: Handle Business Logic, Validation, and Error Prevention
- */
 public class StudentService {
     private StudentRepository repository;
 
-    // Dependency Injection: Connecting the service to the repository
     public StudentService(StudentRepository repository) {
         this.repository = repository;
     }
 
+    // Existing Student Logic
     public void saveStudent(Student student) {
-        // VALIDATION: No empty names allowed (Roadmap Requirement)
         if (student.getName() == null || student.getName().trim().isEmpty()) {
-            System.out.println("Validation Error: Student name cannot be empty!");
+            System.out.println("Error: Name cannot be empty.");
             return;
         }
-
-        // VALIDATION: ID must be positive
-        if (student.getId() <= 0) {
-            System.out.println("Validation Error: Invalid Student ID!");
-            return;
-        }
-
         repository.addStudent(student);
-        System.out.println("Success: Student validated and saved.");
+    }
+
+    // NEW: Inventory Logic with Validation
+    public void saveItem(Inventory item) {
+        if (item.getQuantity() < 0) { // Validation Requirement
+            System.out.println("Validation Error: Quantity cannot be negative!");
+            return;
+        }
+        repository.addItem(item);
+        System.out.println("Success: Item '" + item.getItemName() + "' added to inventory.");
     }
 }
