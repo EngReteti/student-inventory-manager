@@ -1,0 +1,39 @@
+import model.Student;
+import repository.StudentRepository;
+import service.StudentService;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        // 1. Create a Mock Repository (Simulating a Database for now)
+        StudentRepository mockRepo = new StudentRepository() {
+            private List<Student> db = new ArrayList<>();
+
+            @Override
+            public void addStudent(Student s) { db.add(s); }
+            @Override
+            public Student getStudentById(int id) { return null; }
+            @Override
+            public List<Student> getAllStudents() { return db; }
+            @Override
+            public void updateStudent(Student s) {}
+            @Override
+            public void deleteStudent(int id) {}
+        };
+
+        // 2. Initialize Service with the Repository
+        StudentService service = new StudentService(mockRepo);
+
+        System.out.println("--- Starting Student Management System ---");
+
+        // 3. Test VALID data
+        Student validStudent = new Student(101, "John Doe", "Computer Science");
+        service.saveStudent(validStudent);
+
+        // 4. Test INVALID data (Triggers your Validation logic)
+        Student invalidStudent = new Student(0, "", "Physics");
+        service.saveStudent(invalidStudent);
+    }
+}
+
