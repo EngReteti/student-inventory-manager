@@ -1,7 +1,7 @@
 package repository;
 
 import model.Student;
-import model.Inventory; // Import the Inventory model you just created
+import model.Inventory; // Import the Inventory model I just created 
 import java.util.List;
 
 /**
