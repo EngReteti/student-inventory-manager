@@ -2,25 +2,23 @@ package service;
 
 import model.Student;
 import repository.StudentRepository;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Level 2: Student Service
- * Responsibility: Business logic for student records only.
- */
 public class StudentService {
     private StudentRepository repository = new StudentRepository();
 
-    public void registerStudent(Student student) {
-        // Validation: Ensure student name is not empty
+    // Now accepts 'conn' to support Transactions
+    public void registerStudent(Connection conn, Student student) throws SQLException {
+        // Validation Rule: Name cannot be empty
         if (student.getName() == null || student.getName().trim().isEmpty()) {
-            System.err.println("❌ Error: Student name cannot be empty.");
-            return;
+            throw new SQLException("Validation Error: Student name is required.");
         }
-        repository.save(student);
+        repository.save(conn, student);
     }
 
-    public List<Student> getStudentDirectory() {
-        return repository.findAll();
+    public List<Student> getStudentDirectory(Connection conn) throws SQLException {
+        return repository.findAll(conn);
     }
 }
