@@ -21,8 +21,8 @@ The project follows a **Layered Architecture** to ensure a separation of concern
   - [x] Student Management Module.
   - [x] Inventory Management Module.
   - [x] Integration Testing in `Main.java`.
-- [ ] **Level 2: Persistence & Connectivity** (Next)
-  - [ ] Connect to MySQL/PostgreSQL via JDBC.
+- [x] **Level 2: Persistence & Connectivity** (Next)
+  - [x] Connect to MySQL/PostgreSQL via JDBC.
   - [ ] Implement Database Transactions.
 
 ## 🚀 How to Run
