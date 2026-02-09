@@ -4,25 +4,32 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Level 2: Database Configuration
- * Responsibility: Establishing a secure link to the SQL database.
- */
 public class DatabaseConfig {
-    // Database credentials - Update these based on your local setup
-    private static final String URL = "jdbc:mysql://localhost:3306/inventory_db";
+    // Update these to match your local SQL installation
+    private static final String URL = "jdbc:mysql://localhost:3306/student_inventory_db";
     private static final String USER = "root";
-    private static final String PASSWORD = "your_secure_password"; 
+    private static final String PASSWORD = "your_secure_password";
 
-    public static Connection getConnection() {
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("✅ Database connection established!");
-        } catch (SQLException e) {
-            System.err.println("❌ Connection Error: " + e.getMessage());
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+
+    // NEW: Transaction Management Methods
+    public static void startTransaction(Connection conn) throws SQLException {
+        if (conn != null) conn.setAutoCommit(false);
+    }
+
+    public static void commitTransaction(Connection conn) throws SQLException {
+        if (conn != null) {
+            conn.commit();
+            conn.setAutoCommit(true);
         }
-        return conn;
+    }
+
+    public static void rollbackTransaction(Connection conn) throws SQLException {
+        if (conn != null) {
+            conn.rollback();
+            conn.setAutoCommit(true);
+        }
     }
 }
-
