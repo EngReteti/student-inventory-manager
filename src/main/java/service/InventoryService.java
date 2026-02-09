@@ -2,34 +2,29 @@ package service;
 
 import model.Inventory;
 import repository.InventoryRepository;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Level 2: Inventory Service
- * Responsibility: Business logic and validation for warehouse items.
- */
 public class InventoryService {
-    // Connect to the Repository Layer
     private InventoryRepository repository = new InventoryRepository();
 
-    public void addItem(Inventory item) {
+    // Now accepts 'conn' to support Transactions
+    public void addItem(Connection conn, Inventory item) throws SQLException {
         // Validation Rule: Prevent negative quantities
         if (item.getQuantity() < 0) {
-            System.err.println("❌ Validation Error: Quantity cannot be negative!");
-            return;
+            throw new SQLException("Validation Error: Quantity cannot be negative.");
         }
         
-        // Validation Rule: Ensure item name is not empty
+        // Validation Rule: Ensure item name exists
         if (item.getItemName() == null || item.getItemName().trim().isEmpty()) {
-            System.err.println("❌ Validation Error: Item name is required!");
-            return;
+            throw new SQLException("Validation Error: Item name is required.");
         }
 
-        // If validation passes, save to database
-        repository.save(item);
+        repository.save(conn, item);
     }
 
-    public List<Inventory> getAllItems() {
-        return repository.findAll();
+    public List<Inventory> getAllItems(Connection conn) throws SQLException {
+        return repository.findAll(conn);
     }
 }
