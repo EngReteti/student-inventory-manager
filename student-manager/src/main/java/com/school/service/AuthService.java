@@ -2,6 +2,7 @@ package com.school.service;
 import java.sql.*;
 import java.util.Scanner;
 import com.school.database.DatabaseManager;
+import com.school.util.Color;
 
 public class AuthService {
     public boolean login(Scanner sc) {
@@ -19,12 +20,15 @@ public class AuthService {
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()) {
-                System.out.println("✅ Login Successful! Welcome, " + user);
+                Color.success("Login Successful! Welcome, " + user);
                 return true;
             } else {
-                System.out.println("❌ Invalid credentials.");
+                Color.error("Invalid credentials.");
                 return false;
             }
-        } catch (Exception e) { e.printStackTrace(); return false; }
+        } catch (Exception e) { 
+            Color.error("Database connection failed.");
+            return false; 
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.school.service;
 import java.sql.*;
 import java.util.Scanner;
+import com.school.util.Color;
 import com.school.database.DatabaseManager;
 
 public class StudentService {
@@ -8,7 +9,7 @@ public class StudentService {
 
     private int getSafeInt(Scanner sc) {
         while (!sc.hasNextInt()) {
-            System.out.println("⚠️ Error: Please enter a valid number.");
+            Color.error("Please enter a valid number.");
             sc.next();
         }
         int val = sc.nextInt();
@@ -19,10 +20,10 @@ public class StudentService {
     public void run() {
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("\n--- SCHOOL SYSTEM MENU ---");
+            System.out.println("\n\u001B[36m--- SCHOOL SYSTEM MENU ---\u001B[0m");
             System.out.println("1. View Inventory | 2. Add Student | 3. List All");
             System.out.println("4. Delete Student | 5. Add Grade | 6. Report Card");
-            System.out.println("7. Calculate Average | 8. Search Name | 0. Exit");
+            System.out.println("7. Calculate Average | 8. Search Name | \u001B[33m0. Exit\u001B[0m");
             System.out.print("Choose: ");
             int choice = getSafeInt(sc);
             if (choice == 0) break;
@@ -37,7 +38,7 @@ public class StudentService {
                     PreparedStatement ps = conn.prepareStatement("INSERT INTO students (name) VALUES (?)");
                     ps.setString(1, name);
                     ps.executeUpdate();
-                    System.out.println("✅ Student added!");
+                    Color.success("Student added successfully!");
                 } else if (choice == 3) {
                     listStudents(conn);
                 } else if (choice == 4) {
@@ -78,7 +79,7 @@ public class StudentService {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + searchName + "%");
             ResultSet rs = ps.executeQuery();
-            System.out.println("\n🔍 SEARCH RESULTS:");
+            Color.info("\n🔍 SEARCH RESULTS:");
             System.out.println("+-----+----------------------+");
             while (rs.next()) {
                 System.out.printf("| %-3d | %-20s |%n", rs.getInt("id"), rs.getString("name"));

@@ -2,6 +2,7 @@ com/school/App.class
 com/school/service/StudentService.class
 com/school/service/GradeService.class
 com/school/model/Grade.class
+com/school/util/Color.class
 com/school/database/DatabaseManager.class
 com/school/service/AuthService.class
 com/school/Main.class
