@@ -24,7 +24,7 @@ The project follows a **Layered Architecture** to ensure a separation of concern
 - [x] **Level 2: Persistence & Connectivity**
   - [x] Connect to MySQL/PostgreSQL via JDBC.
   - [x] Implement Database Transactions.
-- [ ] **Level 3: Reporting & Search (working on it)
+- [ ] **Level 3: Reporting & Search (in progress)
 
 ## 🚀 How to Run
 1. Clone the repository.
