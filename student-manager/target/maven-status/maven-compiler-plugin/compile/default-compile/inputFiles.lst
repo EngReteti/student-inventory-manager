@@ -1,0 +1,7 @@
+/data/data/com.termux/files/home/student-inventory-manager/student-manager/src/main/java/com/school/App.java
+/data/data/com.termux/files/home/student-inventory-manager/student-manager/src/main/java/com/school/Main.java
+/data/data/com.termux/files/home/student-inventory-manager/student-manager/src/main/java/com/school/database/DatabaseManager.java
+/data/data/com.termux/files/home/student-inventory-manager/student-manager/src/main/java/com/school/model/Grade.java
+/data/data/com.termux/files/home/student-inventory-manager/student-manager/src/main/java/com/school/service/AuthService.java
+/data/data/com.termux/files/home/student-inventory-manager/student-manager/src/main/java/com/school/service/GradeService.java
+/data/data/com.termux/files/home/student-inventory-manager/student-manager/src/main/java/com/school/service/StudentService.java
