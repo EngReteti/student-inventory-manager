@@ -1,58 +1,36 @@
 package repository;
 
-import database.DatabaseConfig;
 import model.Inventory;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Level 2: Repository Layer (Inventory Persistence)
- * Responsibility: Managing warehouse data using SQL and JDBC.
- */
 public class InventoryRepository {
-
-    // CREATE: Save a new item to the inventory table
-    public void save(Inventory item) {
-        String sql = "INSERT INTO inventory (item_name, quantity) VALUES (?, ?)";
-
-        try (Connection conn = DatabaseConfig.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            
+    public void save(Connection conn, Inventory item) throws SQLException {
+        // Updated to include the 'price' column from your Level 2 schema
+        String sql = "INSERT INTO inventory (item_name, quantity, price) VALUES (?, ?, ?)";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, item.getItemName());
             pstmt.setInt(2, item.getQuantity());
-            
+            pstmt.setDouble(3, item.getPrice());
             pstmt.executeUpdate();
             System.out.println("✅ Inventory item '" + item.getItemName() + "' saved to database!");
-            
-        } catch (SQLException e) {
-            System.err.println("❌ Error saving inventory: " + e.getMessage());
         }
     }
 
-    // READ: Retrieve all inventory items
-    public List<Inventory> findAll() {
+    public List<Inventory> findAll(Connection conn) throws SQLException {
         List<Inventory> items = new ArrayList<>();
         String sql = "SELECT * FROM inventory";
-
-        try (Connection conn = DatabaseConfig.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);
-             ResultSet rs = pstmt.executeQuery()) {
-
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                // Adjust constructor parameters to match your Inventory model
-                Inventory item = new Inventory(
-                    rs.getInt("id"),
+                items.add(new Inventory(
+                    rs.getInt("id"), // Matching your AUTO_INCREMENT primary key
                     rs.getString("item_name"),
-                    rs.getInt("quantity")
-                );
-                items.add(item);
+                    rs.getInt("quantity"),
+                    rs.getDouble("price")
+                ));
             }
-        } catch (SQLException e) {
-            System.err.println("❌ Error fetching inventory: " + e.getMessage());
         }
         return items;
     }
