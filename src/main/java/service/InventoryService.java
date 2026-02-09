@@ -9,22 +9,26 @@ import java.util.List;
 public class InventoryService {
     private InventoryRepository repository = new InventoryRepository();
 
-    // Now accepts 'conn' to support Transactions
+    // Level 2: Validated Entry
     public void addItem(Connection conn, Inventory item) throws SQLException {
-        // Validation Rule: Prevent negative quantities
-        if (item.getQuantity() < 0) {
-            throw new SQLException("Validation Error: Quantity cannot be negative.");
-        }
-        
-        // Validation Rule: Ensure item name exists
-        if (item.getItemName() == null || item.getItemName().trim().isEmpty()) {
-            throw new SQLException("Validation Error: Item name is required.");
-        }
-
+        if (item.getQuantity() < 0) throw new SQLException("Quantity cannot be negative.");
         repository.save(conn, item);
     }
 
-    public List<Inventory> getAllItems(Connection conn) throws SQLException {
-        return repository.findAll(conn);
+    // Level 3: Reporting & Analytics
+    public void generateFullReport(Connection conn) throws SQLException {
+        List<Inventory> items = repository.findAll(conn);
+        double totalValue = 0;
+        System.out.println("\n===== 📊 WAREHOUSE REPORT =====");
+        for (Inventory i : items) {
+            double itemValue = i.getQuantity() * i.getPrice();
+            totalValue += itemValue;
+            System.out.println("Item: " + i.getItemName() + " | Stock: " + i.getQuantity() + " | Value: $" + itemValue);
+            
+            // Level 3 Logic: Conditional Alert
+            if (i.getQuantity() < 5) System.out.println("   ⚠️ ALERT: Restock needed!");
+        }
+        System.out.println("-------------------------------");
+        System.out.println("TOTAL INVENTORY VALUE: $" + totalValue);
     }
 }
