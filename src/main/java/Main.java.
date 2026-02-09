@@ -1,44 +1,33 @@
 import model.Student;
 import model.Inventory;
-import repository.StudentRepository;
 import service.StudentService;
-import java.util.ArrayList;
-import java.util.List;
+import service.InventoryService;
 
 public class Main {
     public static void main(String[] args) {
-        // 1. Updated Mock Repository to handle both Students and Inventory
-        StudentRepository mockRepo = new StudentRepository() {
-            private List<Student> students = new ArrayList<>();
-            private List<Inventory> items = new ArrayList<>();
+        System.out.println("--- Starting Student & Inventory System (Level 2) ---");
 
-            @Override public void addStudent(Student s) { students.add(s); }
-            @Override public Student getStudentById(int id) { return null; }
-            @Override public List<Student> getAllStudents() { return students; }
-            @Override public void updateStudent(Student s) {}
-            @Override public void deleteStudent(int id) {}
+        // Initialize our Service Layer workers
+        StudentService studentService = new StudentService();
+        InventoryService inventoryService = new InventoryService();
 
-            @Override public void addItem(Inventory i) { items.add(i); }
-            @Override public List<Inventory> getAllItems() { return items; }
-            @Override public void updateItemQuantity(int id, int qty) {}
-            @Override public void deleteItem(int id) {}
-        };
+        // 1. Test Student Persistence (Saving to SQL)
+        System.out.println("\nRegistering Student...");
+        Student newStudent = new Student("Alice Smith", "alice@example.com", "Java Backend");
+        studentService.registerStudent(newStudent);
 
-        // 2. Initialize Service
-        StudentService service = new StudentService(mockRepo);
+        // 2. Test Inventory Persistence (Saving to SQL)
+        System.out.println("\nAdding Inventory Item...");
+        Inventory newItem = new Inventory(1, "MacBook Pro", 10);
+        inventoryService.addItem(newItem);
 
-        System.out.println("--- System Integration Test ---");
+        // 3. Read back all data to confirm it's in the database
+        System.out.println("\n--- Current Student Directory ---");
+        studentService.getStudentDirectory().forEach(s -> 
+            System.out.println("Name: " + s.getName() + " | Email: " + s.getEmail()));
 
-        // 3. Test Student Validation
-        service.saveStudent(new Student(101, "Alice", "Java Backend"));
-
-        // 4. Test Inventory Validation (Roadmap Requirement)
-        System.out.println("\nTesting Inventory...");
-        
-        // This should SUCCEED
-        service.saveItem(new Inventory(1, "Laptop", 10)); 
-        
-        // This should FAIL (Negative quantity validation)
-        service.saveItem(new Inventory(2, "Mouse", -5)); 
+        System.out.println("\n--- Current Warehouse Inventory ---");
+        inventoryService.getAllItems().forEach(i -> 
+            System.out.println("Item: " + i.getItemName() + " | Qty: " + i.getQuantity()));
     }
 }
