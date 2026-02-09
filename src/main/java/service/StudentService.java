@@ -1,32 +1,26 @@
 package service;
 
 import model.Student;
-import model.Inventory;
 import repository.StudentRepository;
+import java.util.List;
 
+/**
+ * Level 2: Student Service
+ * Responsibility: Business logic for student records only.
+ */
 public class StudentService {
-    private StudentRepository repository;
+    private StudentRepository repository = new StudentRepository();
 
-    public StudentService(StudentRepository repository) {
-        this.repository = repository;
-    }
-
-    // Existing Student Logic
-    public void saveStudent(Student student) {
+    public void registerStudent(Student student) {
+        // Validation: Ensure student name is not empty
         if (student.getName() == null || student.getName().trim().isEmpty()) {
-            System.out.println("Error: Name cannot be empty.");
+            System.err.println("❌ Error: Student name cannot be empty.");
             return;
         }
-        repository.addStudent(student);
+        repository.save(student);
     }
 
-    // NEW: Inventory Logic with Validation
-    public void saveItem(Inventory item) {
-        if (item.getQuantity() < 0) { // Validation Requirement
-            System.out.println("Validation Error: Quantity cannot be negative!");
-            return;
-        }
-        repository.addItem(item);
-        System.out.println("Success: Item '" + item.getItemName() + "' added to inventory.");
+    public List<Student> getStudentDirectory() {
+        return repository.findAll();
     }
 }
