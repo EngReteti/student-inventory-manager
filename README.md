@@ -23,7 +23,8 @@ The project follows a **Layered Architecture** to ensure a separation of concern
   - [x] Integration Testing in `Main.java`.
 - [x] **Level 2: Persistence & Connectivity** (Next)
   - [x] Connect to MySQL/PostgreSQL via JDBC.
-  - [ ] Implement Database Transactions.
+  - [x] Implement Database Transactions.
+- [ ] **Level 3: Reporting & Search
 
 ## 🚀 How to Run
 1. Clone the repository.
