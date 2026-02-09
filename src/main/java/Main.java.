@@ -13,21 +13,29 @@ public class Main {
         Connection conn = null;
 
         try {
+            // 1. Establish the single connection for the transaction
             conn = DatabaseConfig.getConnection();
-            // 1. Start Transaction
+            
+            // 2. Turn off Auto-Commit to start the transaction
             DatabaseConfig.startTransaction(conn);
             System.out.println("--- Starting Level 2 Transactional Test ---");
 
-            // 2. Perform Operations
-            studentService.registerStudent(new Student("Bob Builder", "bob@example.com", "Civil Engineering"));
-            inventoryService.addItem(new Inventory(50, "Tool Kit", 5));
+            // 3. Perform Operations - Passing 'conn' through all layers
+            // We use 0 for IDs because the DB handles AUTO_INCREMENT
+            studentService.registerStudent(conn, new Student(0, "Alice Smith", "alice@example.com", "Java Backend"));
+            inventoryService.addItem(conn, new Inventory(0, "MacBook Pro", 10, 1500.00));
 
-            // 3. Commit if everything is successful
+            // 4. If we reach here with no errors, save everything forever
             DatabaseConfig.commitTransaction(conn);
             System.out.println("✅ Transaction Success: All data saved securely!");
 
+            // 5. Read back data to verify (Optional test)
+            System.out.println("\n--- Current Student Directory ---");
+            studentService.getStudentDirectory(conn).forEach(s -> 
+                System.out.println("Name: " + s.getName() + " | Email: " + s.getEmail()));
+
         } catch (SQLException e) {
-            // 4. Rollback if ANY part fails
+            // 6. If ANY step fails, undo everything
             try {
                 if (conn != null) {
                     DatabaseConfig.rollbackTransaction(conn);
@@ -37,6 +45,13 @@ public class Main {
                 ex.printStackTrace();
             }
             System.err.println("Error details: " + e.getMessage());
+        } finally {
+            // 7. Always close the connection to prevent memory leaks
+            try {
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
