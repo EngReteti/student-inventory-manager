@@ -1,33 +1,42 @@
+import database.DatabaseConfig;
 import model.Student;
 import model.Inventory;
 import service.StudentService;
 import service.InventoryService;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("--- Starting Student & Inventory System (Level 2) ---");
-
-        // Initialize our Service Layer workers
         StudentService studentService = new StudentService();
         InventoryService inventoryService = new InventoryService();
+        Connection conn = null;
 
-        // 1. Test Student Persistence (Saving to SQL)
-        System.out.println("\nRegistering Student...");
-        Student newStudent = new Student("Alice Smith", "alice@example.com", "Java Backend");
-        studentService.registerStudent(newStudent);
+        try {
+            conn = DatabaseConfig.getConnection();
+            // 1. Start Transaction
+            DatabaseConfig.startTransaction(conn);
+            System.out.println("--- Starting Level 2 Transactional Test ---");
 
-        // 2. Test Inventory Persistence (Saving to SQL)
-        System.out.println("\nAdding Inventory Item...");
-        Inventory newItem = new Inventory(1, "MacBook Pro", 10);
-        inventoryService.addItem(newItem);
+            // 2. Perform Operations
+            studentService.registerStudent(new Student("Bob Builder", "bob@example.com", "Civil Engineering"));
+            inventoryService.addItem(new Inventory(50, "Tool Kit", 5));
 
-        // 3. Read back all data to confirm it's in the database
-        System.out.println("\n--- Current Student Directory ---");
-        studentService.getStudentDirectory().forEach(s -> 
-            System.out.println("Name: " + s.getName() + " | Email: " + s.getEmail()));
+            // 3. Commit if everything is successful
+            DatabaseConfig.commitTransaction(conn);
+            System.out.println("✅ Transaction Success: All data saved securely!");
 
-        System.out.println("\n--- Current Warehouse Inventory ---");
-        inventoryService.getAllItems().forEach(i -> 
-            System.out.println("Item: " + i.getItemName() + " | Qty: " + i.getQuantity()));
+        } catch (SQLException e) {
+            // 4. Rollback if ANY part fails
+            try {
+                if (conn != null) {
+                    DatabaseConfig.rollbackTransaction(conn);
+                    System.err.println("❌ Transaction Failed. All changes were rolled back.");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            System.err.println("Error details: " + e.getMessage());
+        }
     }
 }
