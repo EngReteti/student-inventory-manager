@@ -1,20 +1,37 @@
 package repository;
 
+import database.DatabaseConfig;
 import model.Student;
-import model.Inventory; // Import the Inventory model I just created 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Objective: Define the CRUD contract for both Students and Inventory
+ * Level 2: Repository Layer Evolution
+ * Responsibility: Shifting from ArrayList to SQL for permanent storage.
  */
-public interface StudentRepository {
-    // --- Student Operations ---
-    void addStudent(Student student);
-    List<Student> getAllStudents();
+public class StudentRepository {
 
-    // --- Inventory Operations (New Additions) ---
-    void addItem(Inventory item);             // Create item
-    List<Inventory> getAllItems();           // Read all items
-    void updateItemQuantity(int id, int qty); // Update stock
-    void deleteItem(int id);                  // Remove item
+    // CREATE: Save a student to the SQL database
+    public void save(Student student) {
+        String sql = "INSERT INTO students (name, email, course) VALUES (?, ?, ?)";
+
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, student.getName());
+            pstmt.setString(2, student.getEmail());
+            pstmt.setString(3, student.getCourse());
+            
+            pstmt.executeUpdate();
+            System.out.println("✅ Student '" + student.getName() + "' saved to database!");
+            
+        } catch (SQLException e) {
+            System.err.println("❌ Error saving student: " + e.getMessage());
+        }
+    }
+
+    // We will implement findAll(), update(), and delete() next
 }
