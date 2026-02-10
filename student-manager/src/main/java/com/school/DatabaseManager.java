@@ -55,7 +55,6 @@ public class DatabaseManager {
         }
     }
 
-    // NEW: Update functionality
     public void updateStudent(String id, String newName, String newPhone) {
         String sql = "UPDATE students SET name = ?, phone = ? WHERE student_id = ?";
         try (Connection conn = DriverManager.getConnection(url, user, password);
@@ -71,6 +70,23 @@ public class DatabaseManager {
             }
         } catch (SQLException e) {
             System.out.println("❌ Update Error: " + e.getMessage());
+        }
+    }
+
+    public void viewAllStudents() {
+        String sql = "SELECT * FROM students";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            System.out.println("\n--- ALL STUDENTS ---");
+            System.out.printf("%-15s | %-10s | %-15s%n", "NAME", "ID", "PHONE");
+            System.out.println("----------------------------------------------");
+            while (rs.next()) {
+                System.out.printf("%-15s | %-10s | %-15s%n", 
+                    rs.getString("name"), rs.getString("student_id"), rs.getString("phone"));
+            }
+        } catch (SQLException e) {
+            System.out.println("❌ View Error: " + e.getMessage());
         }
     }
 }

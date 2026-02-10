@@ -13,6 +13,7 @@ public class Main {
             System.out.println("2. Search Student by ID");
             System.out.println("3. Delete Student");
             System.out.println("4. Update Student");
+            System.out.println("5. View All Students");
             System.out.println("0. Exit");
             System.out.print("Choose: ");
 
@@ -45,6 +46,9 @@ public class Main {
                 System.out.print("Enter New Phone: ");
                 String newPhone = scanner.nextLine();
                 db.updateStudent(updateId, newName, newPhone);
+
+            } else if (choice.equals("5")) {
+                db.viewAllStudents();
 
             } else if (choice.equals("0")) {
                 break;
