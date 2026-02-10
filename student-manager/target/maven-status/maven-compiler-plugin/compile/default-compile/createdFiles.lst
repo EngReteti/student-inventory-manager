@@ -6,3 +6,4 @@ com/school/util/Color.class
 com/school/database/DatabaseManager.class
 com/school/service/AuthService.class
 com/school/Main.class
+com/school/DatabaseManager.class
