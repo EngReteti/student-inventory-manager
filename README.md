@@ -20,3 +20,12 @@ To prevent data breaches, I implemented one-way cryptographic hashing. By using 
 1. Ensure MariaDB is running with the \`school\` database.
 2. Navigate to the project folder: \`cd student-manager\`
 3. Compile & Run: \`mvn clean compile exec:java\`
+
+## 🛤️ Future Roadmap
+Use the checkboxes below to track the evolution of this system:
+
+- [ ] **Connection Pooling (HikariCP)**: Optimize database performance by reusing active connections.
+- [ ] **Environment Variables**: Move database credentials to a `.env` file for enhanced security.
+- [ ] **Automated Reporting**: Implement PDF/Excel export for student report cards.
+- [ ] **Regex Validation**: Add strict input rules to prevent data entry errors.
+- [ ] **Unit Testing**: Implement JUnit tests to ensure code reliability during updates.
