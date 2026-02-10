@@ -1,3 +1,4 @@
+- [x] **Environment Variables**: Move database credentials to a .env file...
 # Student & Inventory Management System 🚀
 
 A robust, layered Java backend system designed for high data integrity and clean code standards. This project serves as a foundational real-world system for managing student records and secure teacher authentication.
@@ -24,11 +25,11 @@ To prevent data breaches, I implemented one-way cryptographic hashing. By using 
 ## 🛤️ Future Roadmap
 Use the checkboxes below to track the evolution of this system:
 
-- [ ] **Connection Pooling (HikariCP)**: Optimize database performance by reusing active connections.
-- [ ] **Environment Variables**: Move database credentials to a `.env` file for enhanced security.
-- [ ] **Automated Reporting**: Implement PDF/Excel export for student report cards.
-- [ ] **Regex Validation**: Add strict input rules to prevent data entry errors.
-- [ ] **Unit Testing**: Implement JUnit tests to ensure code reliability during updates.
+- [x] **Connection Pooling (HikariCP)**: Optimize database performance by reusing active connections.
+- [x] **Environment Variables**: Move database credentials to a `.env` file for enhanced security.
+- [x] **Automated Reporting**: Implement PDF/Excel export for student report cards.
+- [x] **Regex Validation**: Add strict input rules to prevent data entry errors.
+- [x] **Unit Testing**: Implement JUnit tests to ensure code reliability during updates.
 
 ## 📸 System Gallery
 | Feature | Preview |
