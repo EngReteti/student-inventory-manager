@@ -22,14 +22,21 @@ To prevent data breaches, I implemented one-way cryptographic hashing. By using 
 2. Navigate to the project folder: \`cd student-manager\`
 3. Compile & Run: \`mvn clean compile exec:java\`
 
-## 🛤️ Future Roadmap
+## 🛤️ Iterative Growth
 Use the checkboxes below to track the evolution of this system:
 
 - [x] **Connection Pooling (HikariCP)**: Optimize database performance by reusing active connections.
+<<<<<<< HEAD
 - [x] **Environment Variables**: Move database credentials to a `.env` file for enhanced security.
 - [x] **Automated Reporting**: Implement PDF/Excel export for student report cards.
 - [x] **Regex Validation**: Add strict input rules to prevent data entry errors.
 - [x] **Unit Testing**: Implement JUnit tests to ensure code reliability during updates.
+=======
+- [ ] **Environment Variables**: Move database credentials to a `.env` file for enhanced security.
+- [ ] **Automated Reporting**: Implement PDF/Excel export for student report cards.
+- [ ] **Regex Validation**: Add strict input rules to prevent data entry errors.
+- [ ] **Unit Testing**: Implement JUnit tests to ensure code reliability during updates.
+>>>>>>> bcc0506c535c6345d7a3e3caf1409c0a37cc1822
 
 ## 📸 System Gallery
 | Feature | Preview |
