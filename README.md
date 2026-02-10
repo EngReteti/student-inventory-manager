@@ -24,7 +24,7 @@ To prevent data breaches, I implemented one-way cryptographic hashing. By using 
 ## 🛤️ Future Roadmap
 Use the checkboxes below to track the evolution of this system:
 
-- [ ] **Connection Pooling (HikariCP)**: Optimize database performance by reusing active connections.
+- [x] **Connection Pooling (HikariCP)**: Optimize database performance by reusing active connections.
 - [ ] **Environment Variables**: Move database credentials to a `.env` file for enhanced security.
 - [ ] **Automated Reporting**: Implement PDF/Excel export for student report cards.
 - [ ] **Regex Validation**: Add strict input rules to prevent data entry errors.
