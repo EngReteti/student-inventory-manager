@@ -29,3 +29,12 @@ Use the checkboxes below to track the evolution of this system:
 - [ ] **Automated Reporting**: Implement PDF/Excel export for student report cards.
 - [ ] **Regex Validation**: Add strict input rules to prevent data entry errors.
 - [ ] **Unit Testing**: Implement JUnit tests to ensure code reliability during updates.
+
+## 📸 System Gallery
+| Feature | Preview |
+| :--- | :--- |
+| **Secure Authentication** | ![Login](student-manager/assets/login.jpg) |
+| **Academic Reporting** | ![Report](student-manager/assets/report.jpg) |
+| **Command Interface** | ![Menu](student-manager/assets/menu.jpg) |
+| **Database Search** | ![Search](student-manager/assets/search.jpg) |
+| **Deployment Success** | ![Exit](student-manager/assets/exit.jpg) |
