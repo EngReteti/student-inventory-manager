@@ -54,5 +54,24 @@ public class DatabaseManager {
             System.out.println("❌ Delete Error: " + e.getMessage());
         }
     }
+
+    // NEW: Update functionality
+    public void updateStudent(String id, String newName, String newPhone) {
+        String sql = "UPDATE students SET name = ?, phone = ? WHERE student_id = ?";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newName);
+            pstmt.setString(2, newPhone);
+            pstmt.setString(3, id);
+            int rowsUpdated = pstmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("✅ Student updated successfully!");
+            } else {
+                System.out.println("⚠️ ID " + id + " not found.");
+            }
+        } catch (SQLException e) {
+            System.out.println("❌ Update Error: " + e.getMessage());
+        }
+    }
 }
 
