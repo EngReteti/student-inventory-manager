@@ -7,22 +7,10 @@ A robust Java-based backend application for managing student records, featuring 
 * **Relational Database**: Powered by MariaDB for reliable data storage and retrieval.
 * **Interactive CLI**: A user-friendly command-line interface with color-coded feedback.
 
-## 🛠️ Tech Stack
-* **Language**: Java 17
-* **Build Tool**: Maven
-* **Database**: MariaDB
-* **Security**: SHA-256 Hashing Algorithm
-
 ## 🛡️ Security Implementation
 In this project, I moved beyond basic authentication to implement cryptographic security. By hashing passwords with SHA-256, the system protects sensitive teacher data against potential database leaks, adhering to modern backend development best practices.
 
 ## 📖 How to Run
-1. Ensure MariaDB is running and the `school` database is configured.
-2. Compile the project:
-   \`\`\`bash
-   mvn clean compile
-   \`\`\`
-3. Run the application:
-   \`\`\`bash
-   mvn exec:java
-   \`\`\`
+1. Ensure MariaDB is running and the \`school\` database is configured.
+2. Compile the project: \`mvn clean compile\`
+3. Run the application: \`mvn exec:java\`
