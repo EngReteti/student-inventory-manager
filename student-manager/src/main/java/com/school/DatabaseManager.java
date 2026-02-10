@@ -1,13 +1,28 @@
 package com.school;
 
 import java.sql.*;
+import java.util.regex.Pattern;
 
 public class DatabaseManager {
     private String url = "jdbc:mariadb://localhost:3306/school_db";
     private String user = "root";
     private String password = "";
 
+    // The Shield: Check if ID is exactly 5 digits
+    public boolean isValidId(String id) {
+        return Pattern.matches("\\d{5}", id);
+    }
+
+    // The Shield: Check if Phone is 10-12 digits
+    public boolean isValidPhone(String phone) {
+        return Pattern.matches("\\d{10,12}", phone);
+    }
+
     public void saveStudent(String name, String id, String phone) {
+        if (!isValidId(id) || !isValidPhone(phone)) {
+            System.out.println("❌ ERROR: ID must be 5 digits and Phone 10-12 digits!");
+            return;
+        }
         String sql = "INSERT INTO students (name, student_id, phone) VALUES (?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -56,6 +71,10 @@ public class DatabaseManager {
     }
 
     public void updateStudent(String id, String newName, String newPhone) {
+        if (!isValidPhone(newPhone)) {
+            System.out.println("❌ Update Failed: New phone must be 10-12 digits!");
+            return;
+        }
         String sql = "UPDATE students SET name = ?, phone = ? WHERE student_id = ?";
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {

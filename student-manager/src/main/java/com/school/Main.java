@@ -8,7 +8,7 @@ public class Main {
         DatabaseManager db = new DatabaseManager();
 
         while (true) {
-            System.out.println("\n--- MAIN MENU ---");
+            System.out.println("\n--- MAIN MENU (SMART VERSION) ---");
             System.out.println("1. Add Student");
             System.out.println("2. Search Student by ID");
             System.out.println("3. Delete Student");
@@ -22,10 +22,19 @@ public class Main {
             if (choice.equals("1")) {
                 System.out.print("Name: ");
                 String name = scanner.nextLine();
-                System.out.print("ID: ");
-                String id = scanner.nextLine();
-                System.out.print("Phone: ");
-                String phone = scanner.nextLine();
+                
+                String id = "";
+                while (!db.isValidId(id)) {
+                    System.out.print("ID (Exactly 5 digits): ");
+                    id = scanner.nextLine();
+                }
+
+                String phone = "";
+                while (!db.isValidPhone(phone)) {
+                    System.out.print("Phone (10-12 digits): ");
+                    phone = scanner.nextLine();
+                }
+
                 db.saveStudent(name, id, phone);
 
             } else if (choice.equals("2")) {
@@ -43,7 +52,7 @@ public class Main {
                 String updateId = scanner.nextLine();
                 System.out.print("Enter New Name: ");
                 String newName = scanner.nextLine();
-                System.out.print("Enter New Phone: ");
+                System.out.print("Enter New Phone (10-12 digits): ");
                 String newPhone = scanner.nextLine();
                 db.updateStudent(updateId, newName, newPhone);
 
