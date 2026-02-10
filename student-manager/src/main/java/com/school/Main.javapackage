@@ -1,4 +1,3 @@
-package com.school;
 
 import java.util.Scanner;
 
@@ -6,6 +5,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         DatabaseManager db = new DatabaseManager();
+
+        System.out.println("🚀 SCHOOL MANAGEMENT SYSTEM READY");
 
         while (true) {
             System.out.println("\n--- MAIN MENU ---");
@@ -18,12 +19,9 @@ public class Main {
             String choice = scanner.nextLine();
 
             if (choice.equals("1")) {
-                System.out.print("Name: ");
-                String name = scanner.nextLine();
-                System.out.print("ID (5 digits): ");
-                String id = scanner.nextLine();
-                System.out.print("Phone: ");
-                String phone = scanner.nextLine();
+                String name = getValidInput(scanner, "Name: ", "^[A-Za-z ]+$", "Invalid Name! Use letters only.");
+                String id = getValidInput(scanner, "ID (5 digits): ", "^[0-9]{5}$", "Invalid ID! Must be exactly 5 digits.");
+                String phone = getValidInput(scanner, "Phone (10 digits): ", "^[0-9]{10}$", "Invalid Phone! Must be 10 digits.");
                 db.saveStudent(name, id, phone);
 
             } else if (choice.equals("2")) {
@@ -42,5 +40,14 @@ public class Main {
         }
         scanner.close();
     }
-}
 
+    public static String getValidInput(Scanner scanner, String prompt, String regex, String errorMsg) {
+        String input;
+        while (true) {
+            System.out.print(prompt);
+            input = scanner.nextLine().trim();
+            if (input.matches(regex)) return input;
+            System.out.println("❌ Error: " + errorMsg);
+        }
+    }
+}
