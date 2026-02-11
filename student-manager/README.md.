@@ -9,22 +9,27 @@ The project follows a **Layered Architecture** to ensure a separation of concern
 * **Data Layer**: Powered by **MariaDB** for reliable, persistent storage.
 
 ## 🌟 Key Features
-* **Secure Authentication**: Implemented via SHA-256 password hashing.
-* **Data Sanitization**: Robust handling for input buffering and encoding.
-* **Full CRUD**: Manage student inventory and academic averages through a color-coded CLI.
+* **Secure Authentication**: Implements SHA-256 password hashing.
+* **Data Sanitization**: Built-in logic to handle input buffering and encoding mismatches.
+* **Full CRUD**: Manage student inventory, grades, and academic averages through a color-coded CLI.
 
 ## 🛡️ Security Implementation
 To prevent data breaches, I implemented one-way cryptographic hashing. By using the SHA-256 algorithm, the system ensures that even in the event of a database leak, user passwords remain secure and unreadable.
+
+## 📖 How to Run
+1. Ensure MariaDB is running with the `school` database.
+2. Navigate to the project folder: `cd student-manager`.
+3. Compile & Run: `mvn clean compile exec:java`.
 
 ## 📸 System Gallery
 
 | Feature | Preview |
 | :--- | :--- |
-| **Secure Login** | ![Login](assets/login.jpg) |
-| **Main Command Menu** | ![Menu](assets/menu.jpg) |
-| **Academic Reporting** | ![Reporting](assets/report.jpg) |
-| **Database Search** | ![Search](assets/search.jpg) |
+| **Secure Authentication** | ![Auth](assets/1000287954.jpg) |
+| **Academic Reporting** | ![Reporting](assets/1000287954.jpg) |
+| **Command Interface** | ![CLI](assets/1000287955.jpg) |
+| **Database Search** | ![Search](assets/1000287956.jpg) |
+| **Deployment Success** | ![Build](assets/1000287957.jpg) |
 | **Data Persistence** | ![Persistence](assets/persistence.jpg) |
 | **Cloud Synchronization** | ![Sync](assets/sync.jpg) |
-| **System Exit** | ![Exit](assets/exit.jpg) |
 
