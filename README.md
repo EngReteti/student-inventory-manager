@@ -1,48 +1,40 @@
-- [x] **Environment Variables**: Move database credentials to a .env file...
 # Student & Inventory Management System 🚀
 
-A robust, layered Java backend system designed for high data integrity and clean code standards. This project serves as a foundational real-world system for managing student records and secure teacher authentication.
+A high-performance Java backend engineered for absolute data integrity and professional security standards. This project demonstrates the evolution of a real-world system from basic logic to a robust, MariaDB-persistent infrastructure.
 
-## 🏗️ System Architecture
-The project follows a **Layered Architecture** to ensure a separation of concerns:
-* **Model Layer**: Defines data structures using Encapsulation.
-* **Service Layer**: Implements business logic and security validation.
-* **Data Layer**: Powered by MariaDB for reliable, persistent storage.
+## 🏗️ Technical Architecture
+The system utilizes a strictly decoupled **Layered Architecture** to ensure maintainability:
+* **Presentation Layer**: Color-coded, interactive CLI for intuitive user navigation.
+* **Service Layer**: Handles complex business logic, including academic grade averaging and SHA-256 security hashing.
+* **Data Access Layer (DAO)**: Powered by **MariaDB** for permanent, secure storage with optimized SQL queries.
 
-## 🌟 Key Features
-* **Secure Authentication**: Implements SHA-256 password hashing to ensure credentials are never stored in plain text.
-* **Data Sanitization**: Built-in logic to handle input buffering and encoding mismatches.
-* **Full CRUD**: Manage student inventory, grades, and academic averages through a color-coded CLI.
+## 🌟 Professional Features
+* **Advanced Security**: Implements cryptographic SHA-256 hashing to ensure user credentials are never stored in plain text.
+* **Data Integrity**: Built-in sanitization logic to handle input buffering and prevent encoding mismatches.
+* **Automated Reporting**: Real-time generation of student performance metrics and academic averages.
 
-## 🛡️ Security Implementation
-To prevent data breaches, I implemented one-way cryptographic hashing. By using the SHA-256 algorithm, the system ensures that even in the event of a database leak, user passwords remain secure and unreadable.
+## 📈 Iterative Growth & Milestones
+I built this system through a disciplined, step-by-step development lifecycle:
+- [x] **Initial Logic**: Established core Student objects and encapsulation.
+- [x] **Database Integration**: Migrated from temporary memory to persistent **MariaDB** storage.
+- [x] **Performance Optimization**: Implemented **HikariCP** for efficient database connection pooling.
+- [x] **Security Hardening**: Integrated SHA-256 hashing and Environment Variable protection for credentials.
+- [x] **Full System Gallery**: Documented proof-of-work through a comprehensive visual verification suite.
 
-## 📖 How to Run
-1. Ensure MariaDB is running with the \`school\` database.
-2. Navigate to the project folder: \`cd student-manager\`
-3. Compile & Run: \`mvn clean compile exec:java\`
+## 📸 System Gallery (Proof of Work)
 
-## 🛤️ Iterative Growth
-Use the checkboxes below to track the evolution of this system:
-
-- [x] **Connection Pooling (HikariCP)**: Optimize database performance by reusing active connections.
-<<<<<<< HEAD
-- [x] **Environment Variables**: Move database credentials to a `.env` file for enhanced security.
-- [x] **Automated Reporting**: Implement PDF/Excel export for student report cards.
-- [x] **Regex Validation**: Add strict input rules to prevent data entry errors.
-- [x] **Unit Testing**: Implement JUnit tests to ensure code reliability during updates.
-=======
-- [ ] **Environment Variables**: Move database credentials to a `.env` file for enhanced security.
-- [ ] **Automated Reporting**: Implement PDF/Excel export for student report cards.
-- [ ] **Regex Validation**: Add strict input rules to prevent data entry errors.
-- [ ] **Unit Testing**: Implement JUnit tests to ensure code reliability during updates.
->>>>>>> bcc0506c535c6345d7a3e3caf1409c0a37cc1822
-
-## 📸 System Gallery
-| Feature | Preview |
+| Feature | Visual Preview |
 | :--- | :--- |
-| **Secure Authentication** | ![Login](student-manager/assets/login.jpg) |
-| **Academic Reporting** | ![Report](student-manager/assets/report.jpg) |
-| **Command Interface** | ![Menu](student-manager/assets/menu.jpg) |
-| **Database Search** | ![Search](student-manager/assets/search.jpg) |
-| **Deployment Success** | ![Exit](student-manager/assets/exit.jpg) |
+| **Teacher Authentication** | ![Login](assets/login.jpg) |
+| **Smart Navigation Menu** | ![Menu](assets/menu.jpg) |
+| **Academic Analytics** | ![Reporting](assets/report.jpg) |
+| **Dynamic Record Search** | ![Search](assets/search.jpg) |
+| **Database Persistence** | ![Persistence](assets/persistence.jpg) |
+| **Cloud Synchronization** | ![Sync](assets/sync.jpg) |
+| **Graceful Shutdown** | ![Exit](assets/exit.jpg) |
+
+## 📖 Deployment Instructions
+1. Ensure a **MariaDB** instance is active with the `school` database schema.
+2. Navigate to: `cd student-manager`
+3. Execute the build: `mvn clean compile exec:java`
+
