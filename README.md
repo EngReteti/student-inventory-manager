@@ -1,40 +1,52 @@
 # Student & Inventory Management System 🚀
 
-A high-performance Java backend engineered for absolute data integrity and professional security standards. This project demonstrates the evolution of a real-world system from basic logic to a robust, MariaDB-persistent infrastructure.
+An enterprise-grade Java backend solution engineered for high data integrity, secure teacher authentication, and persistent record management. This project represents a complete evolution from basic procedural logic to a fully decoupled, database-driven architecture.
 
-## 🏗️ Technical Architecture
-The system utilizes a strictly decoupled **Layered Architecture** to ensure maintainability:
-* **Presentation Layer**: Color-coded, interactive CLI for intuitive user navigation.
-* **Service Layer**: Handles complex business logic, including academic grade averaging and SHA-256 security hashing.
-* **Data Access Layer (DAO)**: Powered by **MariaDB** for permanent, secure storage with optimized SQL queries.
+---
 
-## 🌟 Professional Features
-* **Advanced Security**: Implements cryptographic SHA-256 hashing to ensure user credentials are never stored in plain text.
-* **Data Integrity**: Built-in sanitization logic to handle input buffering and prevent encoding mismatches.
-* **Automated Reporting**: Real-time generation of student performance metrics and academic averages.
+## 🏗️ System Architecture
+The project is built on a **Layered (n-tier) Architecture** to ensure a strict separation of concerns, facilitating easier maintenance and testing:
+* **Presentation Layer**: An interactive, color-coded CLI providing an intuitive user experience.
+* **Service Layer**: Encapsulates business logic, including academic calculations and SHA-256 security hashing.
+* **Data Access Layer (DAO)**: Robust integration with **MariaDB** for permanent storage, utilizing optimized SQL queries for high performance.
 
-## 📈 Iterative Growth & Milestones
-I built this system through a disciplined, step-by-step development lifecycle:
-- [x] **Initial Logic**: Established core Student objects and encapsulation.
-- [x] **Database Integration**: Migrated from temporary memory to persistent **MariaDB** storage.
-- [x] **Performance Optimization**: Implemented **HikariCP** for efficient database connection pooling.
-- [x] **Security Hardening**: Integrated SHA-256 hashing and Environment Variable protection for credentials.
-- [x] **Full System Gallery**: Documented proof-of-work through a comprehensive visual verification suite.
+## 🌟 Professional Feature Set
+* **Cryptographic Security**: Implementation of SHA-256 hashing ensures that user credentials remain protected with one-way encryption.
+* **Data Persistence**: Full integration with MariaDB, moving beyond volatile memory to reliable, structured storage.
+* **Input Sanitization**: Advanced logic to handle input buffering and encoding mismatches, preventing data corruption.
+* **Real-time Analytics**: Automated calculation of student performance metrics and academic reporting.
 
-## 📸 System Gallery (Proof of Work)
+## 📈 The Development Journey (Milestones)
+This project documents my growth in software engineering through an iterative lifecycle:
+- [x] **Phase 1: Foundations**: Designed core Student models using strict **Encapsulation**.
+- [x] **Phase 2: Database Migration**: Transitioned from temporary ArrayLists to **MariaDB** persistent storage.
+- [x] **Phase 3: Connection Optimization**: Implemented **HikariCP** for efficient database connection pooling.
+- [x] **Phase 4: Security Hardening**: Integrated cryptographic hashing and environment variable protection (.env) for sensitive credentials.
+- [x] **Phase 5: Visual Documentation**: Finalized a comprehensive 7-point visual verification suite to prove system functionality.
+
+## 📸 System Gallery (Visual Verification)
 
 | Feature | Visual Preview |
 | :--- | :--- |
-| **Teacher Authentication** | ![Login](assets/login.jpg) |
-| **Smart Navigation Menu** | ![Menu](assets/menu.jpg) |
-| **Academic Analytics** | ![Reporting](assets/report.jpg) |
-| **Dynamic Record Search** | ![Search](assets/search.jpg) |
-| **Database Persistence** | ![Persistence](assets/persistence.jpg) |
-| **Cloud Synchronization** | ![Sync](assets/sync.jpg) |
-| **Graceful Shutdown** | ![Exit](assets/exit.jpg) |
+| **Secure Login** | ![Login](assets/login.jpg) |
+| **Command Center** | ![Menu](assets/menu.jpg) |
+| **Performance Analytics** | ![Reporting](assets/report.jpg) |
+| **Search Engine** | ![Search](assets/search.jpg) |
+| **Data Persistence** | ![Persistence](assets/persistence.jpg) |
+| **GitHub Synchronization** | ![Sync](assets/sync.jpg) |
+| **System Exit** | ![Exit](assets/exit.jpg) |
 
-## 📖 Deployment Instructions
-1. Ensure a **MariaDB** instance is active with the `school` database schema.
-2. Navigate to: `cd student-manager`
-3. Execute the build: `mvn clean compile exec:java`
+---
+
+## 🛠️ Technology Stack
+* **Language**: Java (JDK 8+)
+* **Build Tool**: Maven
+* **Database**: MariaDB
+* **Security**: SHA-256 Hashing
+* **Environment Management**: Dotenv for Java
+
+## 📖 How to Run
+1. Ensure **MariaDB** is active with a database named `school`.
+2. Navigate to the core module: `cd student-manager`
+3. Execute the application: `mvn clean compile exec:java`
 
