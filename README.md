@@ -4,35 +4,34 @@ An enterprise-grade Java backend solution engineered for high data integrity, se
 
 ---
 
-## 🏗️ System Architecture
-The project is built on a **Layered (n-tier) Architecture** to ensure a strict separation of concerns, facilitating easier maintenance and testing:
-* **Presentation Layer**: An interactive, color-coded CLI providing an intuitive user experience.
-* **Service Layer**: Encapsulates business logic, including academic calculations and SHA-256 security hashing.
-* **Data Access Layer (DAO)**: Robust integration with **MariaDB** for permanent storage, utilizing optimized SQL queries for high performance.
+## 🏗️ Technical Architecture
+I implemented a **Layered (n-tier) Architecture** to ensure a professional separation of concerns, making the system scalable and easy to maintain:
+* **Presentation Layer**: A color-coded, interactive CLI providing an intuitive administrative user experience.
+* **Service Layer**: Manages business logic, including complex academic averaging and cryptographic security protocols.
+* **Data Access Layer (DAO)**: Optimized **MariaDB** integration for permanent, reliable storage using structured SQL queries.
 
-## 🌟 Professional Feature Set
-* **Cryptographic Security**: Implementation of SHA-256 hashing ensures that user credentials remain protected with one-way encryption.
-* **Data Persistence**: Full integration with MariaDB, moving beyond volatile memory to reliable, structured storage.
-* **Input Sanitization**: Advanced logic to handle input buffering and encoding mismatches, preventing data corruption.
-* **Real-time Analytics**: Automated calculation of student performance metrics and academic reporting.
+## 🌟 Key Features & Growth
+* **Cryptographic Security**: Integrated SHA-256 hashing to ensure that user credentials are never stored in plain text.
+* **Data Persistence**: Transitioned from volatile memory-based storage to a robust MariaDB infrastructure.
+* **Professional Sanitization**: Custom logic to handle input buffering and encoding mismatches, ensuring 100% data integrity.
 
-## 📈 The Development Journey (Milestones)
-This project documents my growth in software engineering through an iterative lifecycle:
-- [x] **Phase 1: Foundations**: Designed core Student models using strict **Encapsulation**.
-- [x] **Phase 2: Database Migration**: Transitioned from temporary ArrayLists to **MariaDB** persistent storage.
-- [x] **Phase 3: Connection Optimization**: Implemented **HikariCP** for efficient database connection pooling.
-- [x] **Phase 4: Security Hardening**: Integrated cryptographic hashing and environment variable protection (.env) for sensitive credentials.
-- [x] **Phase 5: Visual Documentation**: Finalized a comprehensive 7-point visual verification suite to prove system functionality.
+## 📈 My Development Journey (From Scratch to Completion)
+This project documents my growth in software engineering through five distinct phases:
+- [x] **Phase 1: Foundations**: Designed the initial Java models using strict **Encapsulation** and procedural logic.
+- [x] **Phase 2: Database Migration**: Engineered the move from temporary ArrayLists to permanent **MariaDB** persistent storage.
+- [x] **Phase 3: Connection Efficiency**: Implemented **HikariCP** for high-performance database connection pooling.
+- [x] **Phase 4: Security Hardening**: Added cryptographic protection and managed sensitive credentials via environment variables (.env).
+- [x] **Phase 5: Visual Verification**: Completed a 7-point visual suite to document system success and cloud synchronization.
 
-## 📸 System Gallery (Visual Verification)
+## 📸 System Gallery (Proof of Work)
 
 | Feature | Visual Preview |
 | :--- | :--- |
-| **Secure Login** | ![Login](assets/login.jpg) |
+| **Teacher Authentication** | ![Login](assets/login.jpg) |
 | **Command Center** | ![Menu](assets/menu.jpg) |
-| **Performance Analytics** | ![Reporting](assets/report.jpg) |
-| **Search Engine** | ![Search](assets/search.jpg) |
-| **Data Persistence** | ![Persistence](assets/persistence.jpg) |
+| **Academic Reporting** | ![Reporting](assets/report.jpg) |
+| **Dynamic Search** | ![Search](assets/search.jpg) |
+| **MariaDB Persistence** | ![Persistence](assets/persistence.jpg) |
 | **GitHub Synchronization** | ![Sync](assets/sync.jpg) |
 | **System Exit** | ![Exit](assets/exit.jpg) |
 
@@ -43,10 +42,4 @@ This project documents my growth in software engineering through an iterative li
 * **Build Tool**: Maven
 * **Database**: MariaDB
 * **Security**: SHA-256 Hashing
-* **Environment Management**: Dotenv for Java
-
-## 📖 How to Run
-1. Ensure **MariaDB** is active with a database named `school`.
-2. Navigate to the core module: `cd student-manager`
-3. Execute the application: `mvn clean compile exec:java`
 
