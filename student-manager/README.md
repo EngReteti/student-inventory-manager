@@ -1,30 +1,40 @@
 # Student & Inventory Management System 🚀
 
-A robust, layered Java backend system designed for high data integrity and clean code standards. This project serves as a foundational real-world system for managing student records, featuring permanent database storage and secure teacher authentication.
+A high-performance Java backend engineered for absolute data integrity and professional security standards. This project demonstrates the evolution of a real-world system from basic logic to a robust, MariaDB-persistent infrastructure.
 
-## 🏗️ System Architecture
-The project follows a **Layered Architecture** to ensure a separation of concerns:
-* **Model Layer**: Defines data structures using Encapsulation.
-* **Service Layer**: Implements business logic and security validation.
-* **Data Layer**: Powered by **MariaDB** for reliable, persistent storage.
+## 🏗️ Technical Architecture
+The system utilizes a strictly decoupled **Layered Architecture** to ensure maintainability:
+* **Presentation Layer**: Color-coded, interactive CLI for intuitive user navigation.
+* **Service Layer**: Handles complex business logic, including academic grade averaging and SHA-256 security hashing.
+* **Data Access Layer (DAO)**: Powered by **MariaDB** for permanent, secure storage with optimized SQL queries.
 
-## 🌟 Key Features
-* **Secure Authentication**: Implemented via SHA-256 password hashing.
-* **Data Sanitization**: Robust handling for input buffering and encoding.
-* **Full CRUD**: Manage student inventory and academic averages through a color-coded CLI.
+## 🌟 Professional Features
+* **Advanced Security**: Implements cryptographic SHA-256 hashing to ensure user credentials are never stored in plain text.
+* **Data Integrity**: Built-in sanitization logic to handle input buffering and prevent encoding mismatches.
+* **Automated Reporting**: Real-time generation of student performance metrics and academic averages.
 
-## 🛡️ Security Implementation
-To prevent data breaches, I implemented one-way cryptographic hashing. By using the SHA-256 algorithm, the system ensures that even in the event of a database leak, user passwords remain secure and unreadable.
+## 📈 Iterative Growth & Milestones
+I built this system through a disciplined, step-by-step development lifecycle:
+- [x] **Initial Logic**: Established core Student objects and encapsulation.
+- [x] **Database Integration**: Migrated from temporary memory to persistent **MariaDB** storage.
+- [x] **Performance Optimization**: Implemented **HikariCP** for efficient database connection pooling.
+- [x] **Security Hardening**: Integrated SHA-256 hashing and Environment Variable protection for credentials.
+- [x] **Full System Gallery**: Documented proof-of-work through a comprehensive visual verification suite.
 
-## 📸 System Gallery
+## 📸 System Gallery (Proof of Work)
 
-| Feature | Preview |
+| Feature | Visual Preview |
 | :--- | :--- |
-| **Secure Login** | ![Login](assets/login.jpg) |
-| **Main Command Menu** | ![Menu](assets/menu.jpg) |
-| **Academic Reporting** | ![Reporting](assets/report.jpg) |
-| **Database Search** | ![Search](assets/search.jpg) |
-| **Data Persistence** | ![Persistence](assets/persistence.jpg) |
+| **Teacher Authentication** | ![Login](assets/login.jpg) |
+| **Smart Navigation Menu** | ![Menu](assets/menu.jpg) |
+| **Academic Analytics** | ![Reporting](assets/report.jpg) |
+| **Dynamic Record Search** | ![Search](assets/search.jpg) |
+| **Database Persistence** | ![Persistence](assets/persistence.jpg) |
 | **Cloud Synchronization** | ![Sync](assets/sync.jpg) |
-| **System Exit** | ![Exit](assets/exit.jpg) |
+| **Graceful Shutdown** | ![Exit](assets/exit.jpg) |
+
+## 📖 Deployment Instructions
+1. Ensure a **MariaDB** instance is active with the `school` database schema.
+2. Navigate to: `cd student-manager`
+3. Execute the build: `mvn clean compile exec:java`
 
