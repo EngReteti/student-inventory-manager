@@ -37,18 +37,21 @@ javac -d bin student-manager/src/main/java/com/school/*.java student-manager/src
 ```bash
 java -cp "bin:mariadb-java-client-3.1.2.jar" com.school.Main
 ```
+### 5. Administrative Access
+* **Username**: admin
+* **Password**: university2026
 
 ## 📷 System Gallery (Proof of Work)
 
 | ID | Verification Stage | Visual Proof (Click to enlarge) |
 | :--- | :--- | :--- |
-| **1** | **Database Persistence** | ![Proof](assets/1000290051.jpg) |
-| **2** | **Security Gate (SHA-256)** | ![Proof](assets/1000290055.jpg) |
-| **3** | **System Report Engine** | ![Proof](assets/1000290056.jpg) |
-| **4** | **Data Integrity Check** | ![Proof](assets/1000290057.jpg) |
-| **5** | **n-Tier Architecture** | ![Proof](assets/1000288995.jpg) |
-| **6** | **Persistence Validation** | ![Proof](assets/1000290051.jpg) |
-| **7** | **Final Verified Report** | ![Final Proof](assets/IMG_20260213_040900.jpg) |
+| **1** | **Database Persistence** | ![DB](assets/persistence.jpg) |
+| **2** | **Security Gate (SHA-256)** | ![Security](assets/login.jpg) |
+| **3** | **Main Menu Interface** | ![Menu](assets/menu.jpg) |
+| **4** | **System Report Engine** | ![Report](assets/report.jpg) |
+| **5** | **Data Search Logic** | ![Search](assets/search.jpg) |
+| **6** | **Synchronization Flow** | ![Sync](assets/sync.jpg) |
+| **7** | **Session Termination** | ![Exit](assets/exit.jpg) |
 
 > **Note:** All visuals verified and finalized on February 13, 2026.
 
