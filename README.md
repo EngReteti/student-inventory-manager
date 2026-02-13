@@ -17,7 +17,8 @@ I implemented a **Layered (n-tier) Architecture** to ensure a professional separ
 1. **Phase 1: Foundations**: Designed initial Java models using strict **Encapsulation**.
 2. **Phase 2: Database Migration**: Engineered the move to permanent **MariaDB** storage.
 3. **Phase 3: Connection Efficiency**: Implemented **HikariCP** for high-performance pooling.
-4. **Phase 5: Visual Verification**: Completed a 7-point visual suite for system reporting.
+4. **Phase 4: Security Hardening**: Added cryptographic protection for sensitive credentials.
+5. **Phase 5: Visual Verification**: Completed a 7-point visual suite for system reporting.
 
 ## 🚀 How to Run (Step-by-Step)
 ### 1. Clone the Repository
@@ -39,3 +40,35 @@ java -cp "bin:mariadb-java-client-3.1.2.jar" com.school.Main
 ### 5. Administrative Access
 * **Username**: admin
 * **Password**: university2026
+
+## 📷 System Gallery (Proof of Work)
+
+### 1️⃣ Database Persistence Logic
+![Database Proof](1000290051.jpg)
+*Visualizing the MariaDB connection and architectural flow.*
+
+### 2️⃣ Cryptographic Security Gate
+![Security Proof](1000290055.jpg)
+*Verification of the SHA-256 administrative authentication.*
+
+### 3️⃣ System Report Generation
+![Report Proof](1000290056.jpg)
+*Verification of the internal data reporting engine.*
+
+### 4️⃣ Data Integrity Verification
+![Integrity Proof](1000290057.jpg)
+*Validating the sanitization of academic records.*
+
+### 5️⃣ N-Tier Architecture Flow
+![Architecture Proof](1000288995.jpg)
+*Evidence of decoupled logic across Presentation and Service layers.*
+
+### 6️⃣ Persistence Layer Validation
+![Persistence Proof](1000290051.jpg)
+*Verified data retention after system restart.*
+
+### 7️⃣ Final System Visual Verification (Verified)
+![Final Proof](IMG_20260213_040900.jpg)
+*7-point verified enrollment report as of February 13, 2026.*
+
+## ✅ Project Status: MISSION ACCOMPLISHED
