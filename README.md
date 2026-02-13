@@ -16,9 +16,8 @@ I implemented a **Layered (n-tier) Architecture** to ensure a professional separ
 ## 📈 My Development Journey
 1. **Phase 1: Foundations**: Designed initial Java models using strict **Encapsulation**.
 2. **Phase 2: Database Migration**: Engineered the move to permanent **MariaDB** storage.
-3. **Phase 3: Connection Efficiency**: Implemented **HikariCP** for high-performance pooling.
-4. **Phase 4: Security Hardening**: Added cryptographic protection for sensitive credentials.
-5. **Phase 5: Visual Verification**: Completed a 7-point visual suite for system reporting.
+3. **Phase 4: Security Hardening**: Added cryptographic protection for sensitive credentials.
+4. **Phase 5: Visual Verification**: Completed a 7-point visual suite for system reporting.
 
 ## 🚀 How to Run (Step-by-Step)
 ### 1. Clone the Repository
