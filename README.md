@@ -1,58 +1,61 @@
-# Student & Inventory Management System 🚀
+# 🎓 Student & Inventory Management System
 
-An enterprise-grade Java backend solution engineered for high data integrity, secure administrative authentication, and persistent record management.
+## 🎯 Project Impact & Objective
+This project is an enterprise-focused backend solution designed to streamline academic record-keeping. The core mission was to solve **data volatility** by migrating from temporary in-memory storage to a persistent **MariaDB** infrastructure. This ensures that administrative data is not only saved indefinitely but is also protected by a secure authentication layer.
 
-## 🏗 Technical Architecture
-I implemented a **Layered (n-tier) Architecture** to ensure a professional separation of concerns:
-* **Presentation Layer**: A color-coded, interactive CLI providing an intuitive administrative user experience.
-* **Service Layer**: Manages business logic, including complex academic data and cryptographic security protocols.
-* **Data Access Layer (DAO)**: Optimized **MariaDB** integration for permanent, reliable storage using structured SQL queries.
 
-## 🌟 Key Features & Growth
-* **Cryptographic Security**: Integrated SHA-256 hashing to ensure user credentials are never stored in plain text.
-* **Data Persistence**: Transitioned from volatile memory-based storage to a robust MariaDB infrastructure.
-* **Professional Sanitization**: Custom logic to handle input buffering and encoding mismatches, ensuring 100% data integrity.
 
-## 📈 My Development Journey
-1. **Phase 1: Foundations**: Designed initial Java models using strict **Encapsulation**.
-2. **Phase 2: Database Migration**: Engineered the move to permanent **MariaDB** storage.
-3. **Phase 3: Connection Efficiency**: Implemented **HikariCP** for high-performance pooling.
-4. **Phase 4: Security Hardening**: Added cryptographic protection for sensitive credentials.
-5. **Phase 5: Visual Verification**: Completed a 7-point visual suite for system reporting.
+## 💡 Key Technical Solutions
+* **Database Persistence**: Optimized MariaDB integration to handle permanent storage of academic and inventory records.
+* **Cryptographic Security**: Implemented a secure login system to prevent unauthorized administrative access.
+* **Data Integrity**: Built custom validation logic to ensure high-quality, sanitized input for all records.
 
-## 🚀 How to Run (Step-by-Step)
-### 1. Clone the Repository
+## 🛠 Tech Stack & Engineering Tools
+* **Language**: Java (JDK 17+)
+* **Database**: MariaDB
+* **Architecture**: Layered (N-Tier) Design
+* **Version Control**: Git & GitHub
+
+## 🚀 How to Run (Direct Deployment)
+
+### 1. Get the Code
 ```bash
 git clone https://github.com/EngReteti/student-inventory-manager.git
 cd student-inventory-manager
 ```
-### 2. Prerequisites
-Ensure MariaDB is running and `mariadb-java-client-3.1.2.jar` is present.
-### 3. Clean and Build
+
+### 2. Environment Setup
+Ensure MariaDB is running on your system and the `mariadb-java-client-3.1.2.jar` is present in the project directory.
+
+### 3. Build & Execute
 ```bash
-rm -rf bin && mkdir bin
+# Compile all source files
 javac -d bin student-manager/src/main/java/com/school/*.java student-manager/src/main/java/com/school/**/*.java
-```
-### 4. Launch the System
-```bash
+
+# Launch the administrative portal
 java -cp "bin:mariadb-java-client-3.1.2.jar" com.school.Main
 ```
-### 5. Administrative Access
+
+### 4. Admin Access
 * **Username**: admin
 * **Password**: university2026
 
-## 📷 System Gallery (Proof of Work)
+## 📷 System Gallery (Visual Proof of Work)
 
-| ID | Verification Stage | Visual Proof (Click to enlarge) |
+| Unit | System Component | Visual Verification |
 | :--- | :--- | :--- |
-| **1** | **Database Persistence** | ![DB](assets/persistence.jpg) |
-| **2** | **Security Gate (SHA-256)** | ![Security](assets/login.jpg) |
-| **3** | **Main Menu Interface** | ![Menu](assets/menu.jpg) |
-| **4** | **System Report Engine** | ![Report](assets/report.jpg) |
-| **5** | **Data Search Logic** | ![Search](assets/search.jpg) |
-| **6** | **Synchronization Flow** | ![Sync](assets/sync.jpg) |
-| **7** | **Session Termination** | ![Exit](assets/exit.jpg) |
+| **01** | **Persistence Layer** | ![DB](assets/persistence.jpg) |
+| **02** | **Secure Auth Gate** | ![Login](assets/login.jpg) |
+| **03** | **Command Interface** | ![Menu](assets/menu.jpg) |
+| **04** | **Master Reporting** | ![Report](assets/report.jpg) |
+| **05** | **Dynamic Search** | ![Search](assets/search.jpg) |
+| **06** | **Database Sync** | ![Sync](assets/sync.jpg) |
+| **07** | **System Exit** | ![Exit](assets/exit.jpg) |
 
-> **Note:** All visuals verified and finalized on February 13, 2026.
 
-## ✅ Project Status: MISSION ACCOMPLISHED
+
+## ⚠️ Challenges & Technical Solutions
+* **Challenge: Unstable Data States**
+    * *Solution*: Engineered a JDBC bridge to MariaDB, ensuring data persistence across system reboots.
+* **Challenge: Security Vulnerabilities**
+    * *Solution*: Added an authentication interceptor to safeguard administrative functions from unauthorized users.
