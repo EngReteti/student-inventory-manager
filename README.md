@@ -16,8 +16,9 @@ I implemented a **Layered (n-tier) Architecture** to ensure a professional separ
 ## 📈 My Development Journey
 1. **Phase 1: Foundations**: Designed initial Java models using strict **Encapsulation**.
 2. **Phase 2: Database Migration**: Engineered the move to permanent **MariaDB** storage.
-3. **Phase 4: Security Hardening**: Added cryptographic protection for sensitive credentials.
-4. **Phase 5: Visual Verification**: Completed a 7-point visual suite for system reporting.
+3. **Phase 3: Connection Efficiency**: Implemented **HikariCP** for high-performance pooling.
+4. **Phase 4: Security Hardening**: Added cryptographic protection for sensitive credentials.
+5. **Phase 5: Visual Verification**: Completed a 7-point visual suite for system reporting.
 
 ## 🚀 How to Run (Step-by-Step)
 ### 1. Clone the Repository
@@ -41,13 +42,13 @@ java -cp "bin:mariadb-java-client-3.1.2.jar" com.school.Main
 
 | ID | Verification Stage | Visual Proof (Click to enlarge) |
 | :--- | :--- | :--- |
-| **1** | **Database Persistence** | ![DB](1000290051.jpg) |
-| **2** | **Security Gate (SHA-256)** | ![Security](1000290055.jpg) |
-| **3** | **System Report Engine** | ![Report](1000290056.jpg) |
-| **4** | **Data Integrity Check** | ![Integrity](1000290057.jpg) |
-| **5** | **n-Tier Architecture** | ![Architecture](1000288995.jpg) |
-| **6** | **Persistence Validation** | ![Persistence](1000290051.jpg) |
-| **7** | **Final Verified Report** | ![Final Proof](IMG_20260213_040900.jpg) |
+| **1** | **Database Persistence** | <img src="1000290051.jpg" width="300"> |
+| **2** | **Security Gate (SHA-256)** | <img src="1000290055.jpg" width="300"> |
+| **3** | **System Report Engine** | <img src="1000290056.jpg" width="300"> |
+| **4** | **Data Integrity Check** | <img src="1000290057.jpg" width="300"> |
+| **5** | **n-Tier Architecture** | <img src="1000288995.jpg" width="300"> |
+| **6** | **Persistence Validation** | <img src="1000290051.jpg" width="300"> |
+| **7** | **Final Verified Report** | <img src="IMG_20260213_040900.jpg" width="500"> |
 
 > **Note:** All visuals verified and finalized on February 13, 2026.
 
