@@ -37,38 +37,19 @@ javac -d bin student-manager/src/main/java/com/school/*.java student-manager/src
 ```bash
 java -cp "bin:mariadb-java-client-3.1.2.jar" com.school.Main
 ```
-### 5. Administrative Access
-* **Username**: admin
-* **Password**: university2026
 
 ## 📷 System Gallery (Proof of Work)
 
-### 1️⃣ Database Persistence Logic
-![Database Proof](1000290051.jpg)
-*Visualizing the MariaDB connection and architectural flow.*
+| ID | Verification Stage | Visual Proof (Click to enlarge) |
+| :--- | :--- | :--- |
+| **1** | **Database Persistence** | ![DB](1000290051.jpg) |
+| **2** | **Security Gate (SHA-256)** | ![Security](1000290055.jpg) |
+| **3** | **System Report Engine** | ![Report](1000290056.jpg) |
+| **4** | **Data Integrity Check** | ![Integrity](1000290057.jpg) |
+| **5** | **n-Tier Architecture** | ![Architecture](1000288995.jpg) |
+| **6** | **Persistence Validation** | ![Persistence](1000290051.jpg) |
+| **7** | **Final Verified Report** | ![Final Proof](IMG_20260213_040900.jpg) |
 
-### 2️⃣ Cryptographic Security Gate
-![Security Proof](1000290055.jpg)
-*Verification of the SHA-256 administrative authentication.*
-
-### 3️⃣ System Report Generation
-![Report Proof](1000290056.jpg)
-*Verification of the internal data reporting engine.*
-
-### 4️⃣ Data Integrity Verification
-![Integrity Proof](1000290057.jpg)
-*Validating the sanitization of academic records.*
-
-### 5️⃣ N-Tier Architecture Flow
-![Architecture Proof](1000288995.jpg)
-*Evidence of decoupled logic across Presentation and Service layers.*
-
-### 6️⃣ Persistence Layer Validation
-![Persistence Proof](1000290051.jpg)
-*Verified data retention after system restart.*
-
-### 7️⃣ Final System Visual Verification (Verified)
-![Final Proof](IMG_20260213_040900.jpg)
-*7-point verified enrollment report as of February 13, 2026.*
+> **Note:** All visuals verified and finalized on February 13, 2026.
 
 ## ✅ Project Status: MISSION ACCOMPLISHED
