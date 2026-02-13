@@ -55,3 +55,15 @@ java -cp "bin:mariadb-java-client-3.1.2.jar" com.school.Main
 *Updated system proof with final verified enrollment report as of February 13, 2026.*
 
 ## ✅ Project Status: MISSION ACCOMPLISHED
+
+## 📷 System Gallery (Proof of Work)
+
+### ✅ Final System Visual Verification (Verified)
+![Final Proof](IMG_20260213_040900.jpg)
+*Updated system proof with final verified enrollment report as of February 13, 2026.*
+
+### 🖥️ Database Schema & Security Logic
+![Database Proof](1000290056.jpg)
+*Visualizing the MariaDB persistence layer and the 7-point data suite.*
+
+## ✅ Project Status: MISSION ACCOMPLISHED
