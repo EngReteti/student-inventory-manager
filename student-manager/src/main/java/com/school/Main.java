@@ -1,69 +1,25 @@
 package com.school;
-
+import com.school.service.StudentService;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        DatabaseManager db = new DatabaseManager();
+        StudentService service = new StudentService();
+        Scanner sc = new Scanner(System.in);
 
-        while (true) {
-            System.out.println("\n--- MAIN MENU (SMART VERSION) ---");
-            System.out.println("1. Add Student");
-            System.out.println("2. Search Student by ID");
-            System.out.println("3. Delete Student");
-            System.out.println("4. Update Student");
-            System.out.println("5. View All Students");
-            System.out.println("0. Exit");
-            System.out.print("Choose: ");
+        System.out.println("--- UNIVERSITY ACCESS PORTAL ---");
+        System.out.print("Enter Your Name: ");
+        String user = sc.nextLine();
+        System.out.print("Enter Password: ");
+        String pass = sc.nextLine();
 
-            String choice = scanner.nextLine();
-
-            if (choice.equals("1")) {
-                System.out.print("Name: ");
-                String name = scanner.nextLine();
-                
-                String id = "";
-                while (!db.isValidId(id)) {
-                    System.out.print("ID (Exactly 5 digits): ");
-                    id = scanner.nextLine();
-                }
-
-                String phone = "";
-                while (!db.isValidPhone(phone)) {
-                    System.out.print("Phone (10-12 digits): ");
-                    phone = scanner.nextLine();
-                }
-
-                db.saveStudent(name, id, phone);
-
-            } else if (choice.equals("2")) {
-                System.out.print("Enter ID to search: ");
-                String searchId = scanner.nextLine();
-                db.searchStudent(searchId);
-
-            } else if (choice.equals("3")) {
-                System.out.print("Enter ID to DELETE: ");
-                String deleteId = scanner.nextLine();
-                db.deleteStudent(deleteId);
-
-            } else if (choice.equals("4")) {
-                System.out.print("Enter Student ID to Update: ");
-                String updateId = scanner.nextLine();
-                System.out.print("Enter New Name: ");
-                String newName = scanner.nextLine();
-                System.out.print("Enter New Phone (10-12 digits): ");
-                String newPhone = scanner.nextLine();
-                db.updateStudent(updateId, newName, newPhone);
-
-            } else if (choice.equals("5")) {
-                db.viewAllStudents();
-
-            } else if (choice.equals("0")) {
-                break;
-            }
+        // Matching your documented successful login
+        if (user.equals("admin") && pass.equals("university2026")) {
+            System.out.println("Access Granted! Welcome, admin");
+            service.run();
+        } else {
+            System.out.println("Access Denied. Incorrect credentials.");
         }
-        scanner.close();
     }
 }
 

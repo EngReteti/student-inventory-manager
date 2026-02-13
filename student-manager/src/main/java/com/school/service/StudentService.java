@@ -1,90 +1,97 @@
 package com.school.service;
-import java.sql.*;
 import java.util.Scanner;
-import com.school.util.Color;
+import java.sql.*;
 import com.school.database.DatabaseManager;
 
 public class StudentService {
-    private GradeService gradeService = new GradeService();
-
-    private int getSafeInt(Scanner sc) {
-        while (!sc.hasNextInt()) {
-            Color.error("Please enter a valid number.");
-            sc.next();
-        }
-        int val = sc.nextInt();
-        sc.nextLine(); 
-        return val;
-    }
-
     public void run() {
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("\n\u001B[36m--- SCHOOL SYSTEM MENU ---\u001B[0m");
-            System.out.println("1. View Inventory | 2. Add Student | 3. List All");
-            System.out.println("4. Delete Student | 5. Add Grade | 6. Report Card");
-            System.out.println("7. Calculate Average | 8. Search Name | \u001B[33m0. Exit\u001B[0m");
-            System.out.print("Choose: ");
-            int choice = getSafeInt(sc);
-            if (choice == 0) break;
+            System.out.println("\n--- UNIVERSITY MASTER ADMINISTRATION ---");
+            System.out.println("1. Register Student | 2. Search by Reg No");
+            System.out.println("3. Update Grade     | 4. Delete Record");
+            System.out.println("5. View All Data    | 0. Logout");
+            System.out.print("Action: ");
+            String choice = sc.nextLine();
+            if (choice.equals("0")) break;
 
             try (Connection conn = DatabaseManager.getConnection()) {
-                if (choice == 1) {
-                    ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM inventory");
-                    while(rs.next()) System.out.println("- " + rs.getString("item_name") + ": $" + rs.getDouble("price"));
-                } else if (choice == 2) {
-                    System.out.print("Enter Student Name: ");
-                    String name = sc.nextLine();
-                    PreparedStatement ps = conn.prepareStatement("INSERT INTO students (name) VALUES (?)");
-                    ps.setString(1, name);
-                    ps.executeUpdate();
-                    Color.success("Student added successfully!");
-                } else if (choice == 3) {
-                    listStudents(conn);
-                } else if (choice == 4) {
-                    System.out.print("Enter ID to delete: ");
-                    int id = getSafeInt(sc);
-                    PreparedStatement ps = conn.prepareStatement("DELETE FROM students WHERE id = ?");
-                    ps.setInt(1, id);
-                    ps.executeUpdate();
-                } else if (choice == 5) {
-                    gradeService.addGrade(sc);
-                } else if (choice == 6) {
-                    gradeService.viewGrades(sc);
-                } else if (choice == 7) {
-                    gradeService.calculateAverage(sc);
-                } else if (choice == 8) {
-                    searchStudent(sc);
+                switch(choice) {
+                    case "1": add(conn, sc); break;
+                    case "2": search(conn, sc); break;
+                    case "3": update(conn, sc); break;
+                    case "4": delete(conn, sc); break;
+                    case "5": viewAll(conn); break;
                 }
-            } catch (Exception e) { e.printStackTrace(); }
+            } catch (SQLException e) { System.out.println("Error: " + e.getMessage()); }
         }
     }
 
-    private void listStudents(Connection conn) throws SQLException {
+    private void add(Connection conn, Scanner sc) throws SQLException {
+        System.out.println("\n[SECURE REGISTRATION MODE]");
+        System.out.print("Reg No: "); String reg = sc.nextLine();
+        System.out.print("First Name: "); String fn = sc.nextLine();
+        System.out.print("Second Name: "); String sn = sc.nextLine();
+        System.out.print("Dept: "); String dept = sc.nextLine();
+        System.out.print("Unit: "); String u = sc.nextLine();
+        System.out.print("Grade: "); String g = sc.nextLine();
+        System.out.print("Phone: "); String p = sc.nextLine();
+        System.out.print("Email: "); String e = sc.nextLine();
+        System.out.print("Parent No: "); String pp = sc.nextLine();
+        System.out.print("Lecturer: "); String lec = sc.nextLine();
+
+        String sql = "INSERT INTO students (reg_no, first_name, second_name, department, unit, grade, phone, email, parent_phone, lecturer) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, reg); ps.setString(2, fn); ps.setString(3, sn);
+            ps.setString(4, dept); ps.setString(5, u); ps.setString(6, g);
+            ps.setString(7, p); ps.setString(8, e); ps.setString(9, pp);
+            ps.setString(10, lec);
+            ps.executeUpdate();
+            System.out.println("SUCCESS: Record Created for " + fn);
+        }
+    }
+
+    private void viewAll(Connection conn) throws SQLException {
         ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM students");
-        System.out.println("\n+-----+----------------------+");
-        System.out.printf("| %-3s | %-20s |%n", "ID", "Student Name");
-        System.out.println("+-----+----------------------+");
+        System.out.println("\nOFFICIAL UNIVERSITY ENROLLMENT REPORT - ALL DATA");
+        System.out.println("=".repeat(30));
         while (rs.next()) {
-            System.out.printf("| %-3d | %-20s |%n", rs.getInt("id"), rs.getString("name"));
+            System.out.println("REG NO : " + rs.getString("reg_no"));
+            System.out.println("NAME   : " + rs.getString("first_name") + " " + rs.getString("second_name"));
+            System.out.println("DEPT   : " + rs.getString("department") + " | UNIT: " + rs.getString("unit") + " | GRADE: " + rs.getString("grade"));
+            System.out.println("OFFICIALS: Lecturer: " + rs.getString("lecturer") + " | Parent No: " + rs.getString("parent_phone"));
+            System.out.println("CONTACT  : Email: " + rs.getString("email") + " | Phone: " + rs.getString("phone"));
+            System.out.println("-".repeat(60));
         }
-        System.out.println("+-----+----------------------+");
     }
 
-    private void searchStudent(Scanner sc) {
-        System.out.print("Enter name to search: ");
-        String searchName = sc.nextLine();
-        try (Connection conn = DatabaseManager.getConnection()) {
-            String sql = "SELECT * FROM students WHERE name LIKE ?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, "%" + searchName + "%");
+    private void search(Connection conn, Scanner sc) throws SQLException {
+        System.out.print("Reg No: "); String reg = sc.nextLine();
+        try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM students WHERE reg_no = ?")) {
+            ps.setString(1, reg);
             ResultSet rs = ps.executeQuery();
-            Color.info("\n🔍 SEARCH RESULTS:");
-            System.out.println("+-----+----------------------+");
-            while (rs.next()) {
-                System.out.printf("| %-3d | %-20s |%n", rs.getInt("id"), rs.getString("name"));
-            }
-            System.out.println("+-----+----------------------+");
-        } catch (Exception e) { e.printStackTrace(); }
+            if (rs.next()) System.out.println("Found: " + rs.getString("first_name"));
+            else System.out.println("No record found.");
+        }
+    }
+
+    private void update(Connection conn, Scanner sc) throws SQLException {
+        System.out.print("Reg No: "); String reg = sc.nextLine();
+        System.out.print("New Grade: "); String g = sc.nextLine();
+        try (PreparedStatement ps = conn.prepareStatement("UPDATE students SET grade = ? WHERE reg_no = ?")) {
+            ps.setString(1, g); ps.setString(2, reg);
+            ps.executeUpdate();
+            System.out.println("Updated.");
+        }
+    }
+
+    private void delete(Connection conn, Scanner sc) throws SQLException {
+        System.out.print("Reg No: "); String reg = sc.nextLine();
+        try (PreparedStatement ps = conn.prepareStatement("DELETE FROM students WHERE reg_no = ?")) {
+            ps.setString(1, reg);
+            ps.executeUpdate();
+            System.out.println("Deleted.");
+        }
     }
 }
+
