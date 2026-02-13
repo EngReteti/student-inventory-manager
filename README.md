@@ -17,8 +17,7 @@ I implemented a **Layered (n-tier) Architecture** to ensure a professional separ
 1. **Phase 1: Foundations**: Designed initial Java models using strict **Encapsulation**.
 2. **Phase 2: Database Migration**: Engineered the move to permanent **MariaDB** storage.
 3. **Phase 3: Connection Efficiency**: Implemented **HikariCP** for high-performance pooling.
-4. **Phase 4: Security Hardening**: Added cryptographic protection for sensitive credentials.
-5. **Phase 5: Visual Verification**: Completed a 7-point visual suite for system reporting.
+4. **Phase 5: Visual Verification**: Completed a 7-point visual suite for system reporting.
 
 ## 🚀 How to Run (Step-by-Step)
 ### 1. Clone the Repository
@@ -40,10 +39,3 @@ java -cp "bin:mariadb-java-client-3.1.2.jar" com.school.Main
 ### 5. Administrative Access
 * **Username**: admin
 * **Password**: university2026
-
-## 📷 System Gallery (Proof of Work)
-### ✅ Final System Visual Verification (Verified)
-![Final Proof](IMG_20260213_040900.jpg)
-*Updated system proof with final verified enrollment report as of February 13, 2026.*
-
-## ✅ Project Status: MISSION ACCOMPLISHED
