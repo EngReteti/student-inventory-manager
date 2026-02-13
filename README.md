@@ -47,26 +47,32 @@ This project documents my growth in software engineering through five distinct p
 ---
 
 ## 🚀 How to Run (Step-by-Step)
+### 1. Clone the Repository
+Begin by cloning the project and navigating into the directory:
+```bash
+git clone [https://github.com/EngReteti/student-inventory-manager.git](https://github.com/EngReteti/student-inventory-manager.git)
+cd student-inventory-manager
+```
 
 Follow these steps to build and launch the system from your terminal:
 
-### 1. Prerequisites
+### 2. Prerequisites
 Ensure you have the MariaDB server running and the `mariadb-java-client-3.1.2.jar` file in your project root.
 
-### 2. Clean and Build
+### 3. Clean and Build
 This ensures a fresh compilation of the n-tier architecture:
 ```bash
 rm -rf bin && mkdir bin
 javac -d bin student-manager/src/main/java/com/school/*.java student-manager/src/main/java/com/school/**/*.java
 ```
 
-### 3. Launch the System
+### 4. Launch the System
 Run the main entry point with the database driver linked:
 ```bash
 java -cp "bin:mariadb-java-client-3.1.2.jar" com.school.Main
 ```
 
-### 4. Administrative Access
+### 5. Administrative Access
 - **Username:** admin
 - **Password:** university2026
 
