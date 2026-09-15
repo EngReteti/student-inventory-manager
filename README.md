@@ -1,22 +1,22 @@
-# 🎓 Student & Inventory Management System
+# Student & Inventory Management System
 
-## 🎯 Project Impact & Objective
+## Project Impact & Objective
 This project is an enterprise-focused backend solution designed to streamline academic record-keeping. The core mission was to solve **data volatility** by migrating from temporary in-memory storage to a persistent **MariaDB** infrastructure. This ensures that administrative data is not only saved indefinitely but is also protected by a secure authentication layer.
 
 
 
-## 💡 Key Technical Solutions
+## Key Technical Solutions
 * **Database Persistence**: Optimized MariaDB integration to handle permanent storage of academic and inventory records.
 * **Cryptographic Security**: Implemented a secure login system to prevent unauthorized administrative access.
 * **Data Integrity**: Built custom validation logic to ensure high-quality, sanitized input for all records.
 
-## 🛠 Tech Stack & Engineering Tools
+## Tech Stack & Engineering Tools
 * **Language**: Java (JDK 17+)
 * **Database**: MariaDB
 * **Architecture**: Layered (N-Tier) Design
 * **Version Control**: Git & GitHub
 
-## 🚀 How to Run (Direct Deployment)
+## How to Run (Direct Deployment)
 
 ### 1. Get the Code
 ```bash
@@ -40,7 +40,7 @@ java -cp "bin:mariadb-java-client-3.1.2.jar" com.school.Main
 * **Username**: admin
 * **Password**: university2026
 
-## 📷 System Gallery (Visual Proof of Work)
+## System Gallery (Visual Proof of Work)
 
 | Unit | System Component | Visual Verification |
 | :--- | :--- | :--- |
